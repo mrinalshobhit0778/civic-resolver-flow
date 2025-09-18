@@ -2,41 +2,60 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Civic Pulse Design System - Dark Theme with Professional Civic Colors */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Dark civic theme - Professional government platform colors */
+    --background: 222 22% 8%;
+    --foreground: 210 40% 98%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 222 20% 12%;
+    --card-foreground: 210 40% 98%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 222 20% 12%;
+    --popover-foreground: 210 40% 98%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 217 91% 60%;
+    --primary-foreground: 222 22% 8%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217 32% 17%;
+    --secondary-foreground: 210 40% 98%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 217 32% 17%;
+    --muted-foreground: 215 20% 65%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 142 76% 36%;
+    --accent-foreground: 210 40% 98%;
 
-    --destructive: 0 84.2% 60.2%;
+    --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 217 32% 17%;
+    --input: 217 32% 17%;
+    --ring: 217 91% 60%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
+
+    /* Civic-specific colors */
+    --civic-blue: 217 91% 60%;
+    --civic-green: 142 76% 36%;
+    --civic-orange: 25 95% 53%;
+    --civic-navy: 222 47% 11%;
+    --civic-gray: 215 20% 65%;
+
+    /* Gradients for civic appeal */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--civic-blue)), hsl(var(--civic-green)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--background)), hsl(var(--civic-navy)));
+    --gradient-card: linear-gradient(145deg, hsl(var(--card)), hsl(var(--civic-navy) / 0.3));
+
+    /* Shadows for depth */
+    --shadow-civic: 0 10px 30px -10px hsl(var(--civic-blue) / 0.3);
+    --shadow-card: 0 4px 20px -4px hsl(var(--background) / 0.8);
+
+    /* Animation variables */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
     --sidebar-background: 0 0% 98%;
 
@@ -101,5 +120,64 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  /* Civic button variants */
+  .btn-civic-primary {
+    @apply bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-lg hover:shadow-xl;
+    @apply transform transition-all duration-300 hover:scale-105;
+  }
+
+  .btn-civic-secondary {
+    @apply bg-gradient-to-r from-green-600 to-green-700 text-white shadow-lg hover:shadow-xl;
+    @apply transform transition-all duration-300 hover:scale-105;
+  }
+
+  .btn-civic-outline {
+    @apply border-2 border-blue-500 text-blue-400 hover:bg-blue-500 hover:text-white;
+    @apply transition-all duration-300;
+  }
+
+  /* Civic cards */
+  .card-civic {
+    @apply bg-gradient-to-br from-card to-slate-800/50 border border-slate-700;
+    @apply shadow-lg hover:shadow-xl transition-all duration-300;
+  }
+
+  .card-civic-hover {
+    @apply hover:transform hover:scale-[1.02] hover:bg-gradient-to-br hover:from-slate-800 hover:to-slate-700;
+  }
+
+  /* Civic input styles */
+  .input-civic {
+    @apply bg-slate-800/50 border-slate-600 text-foreground placeholder:text-slate-400;
+    @apply focus:border-blue-500 focus:ring-1 focus:ring-blue-500;
+  }
+
+  /* Animations */
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.6s ease-out forwards;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes slideUp {
+    from { 
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to { 
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 }

@@ -47,6 +47,14 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        // Civic-specific colors for the platform
+        civic: {
+          blue: "hsl(var(--civic-blue))",
+          green: "hsl(var(--civic-green))",
+          orange: "hsl(var(--civic-orange))",
+          navy: "hsl(var(--civic-navy))",
+          gray: "hsl(var(--civic-gray))",
+        },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
